@@ -40,7 +40,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     c-c++
+     (c-c++ :variables truncate-lines nil)
      ;; javascript
      markdown
      ;; git
@@ -400,4 +400,15 @@ you should place your code here."
     (mac-select-input-source "com.apple.inputmethod.Kotoeri.Roman"))
   (add-hook 'evil-normal-state-entry-hook 'my-evil-normal-state-entry-hook)
   (add-hook 'focus-in-hook 'my-evil-normal-state-entry-hook)
-)
+
+  (require 'auto-save-buffers-enhanced)
+  (setq auto-save-buffers-enhanced-include-regexps '("\\.\\(hpp\\|cpp\\|c\\|h\\|m\\|mm\\|pl\\|cgi\\|json\\|param\\|vsh\\|fsh\\)$"))
+  (setq auto-save-buffers-enhanced-interval 1)
+  (setq auto-save-buffers-enhanced-quiet-save-p t)
+  (auto-save-buffers-enhanced t)
+
+  (require 'wm)
+  (wm-turn-on)
+  (spacemacs/set-leader-keys "w," 'wm-toggle)
+
+  (setq gc-cons-threshold (* 8 1024 1024)))

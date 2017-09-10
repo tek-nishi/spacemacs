@@ -15,6 +15,15 @@
    (quote
     ("--noediting" "--rcfile" "~/.spacemacs.d/bashrc-macos" "-i")))
  '(helm-buffer-max-length 40)
+ '(hl-todo-keyword-faces
+   (quote
+    (("TODO" . "#D00000")
+     ("NEXT" . "#0000D0")
+     ("DONE" . "#009000")
+     ("NOTE" . "#AA0D91")
+     ("FIXME" . "#D00000")
+     ("SOURCE" . "#AA0D91")
+     ("NOTICE" . "#AA0D91"))))
  '(ls-lisp-dirs-first t)
  '(ls-lisp-ignore-case t)
  '(ls-lisp-use-insert-directory-program nil)
@@ -55,7 +64,8 @@
    (quote
     ((bg1 . "#F8F8F0")
      (base . "#000000")
-     (bg2 . "#E8E8E0"))))
+     (bg2 . "#E8E8E0")
+     (const . "#1C00CF"))))
  '(spacemacs-theme-org-agenda-height nil)
  '(spacemacs-theme-org-height nil)
  '(split-width-threshold nil)
@@ -66,10 +76,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-done ((t (:inherit bold :background nil :foreground "#42ae2c"))))
+ '(font-lock-function-name-face ((t (:inherit default :foreground "#000000"))))
+ '(font-lock-keyword-face ((t (:inherit default :foreground "#AA0D91"))))
+ '(font-lock-type-face ((t (:inherit default :foreground "#ba2f59"))))
+ '(org-agenda-done ((t (:foreground "#00A000" :height 1.0))))
+ '(org-done ((t (:inherit bold :foreground "#00A000" :background nil))))
  '(org-level-1 ((t (:inherit default :foreground "#3a81c3" :height 1.0))))
  '(org-level-2 ((t (:inherit default :foreground "#2d9574" :height 1.0))))
- '(org-todo ((t (:inherit bold :background nil :foreground "#ff0000"))))
+ '(org-time-grid ((t (:foreground "#4f8f00"))))
+ '(org-todo ((t (:inherit bold :background nil :foreground "#E00000"))))
  '(spacemacs-emacs-face ((t (:background "SkyBlue2" :foreground "#202020" :inherit (quote mode-line)))))
  '(spacemacs-evilified-face ((t (:background "LightGoldenrod3" :foreground "#202020" :inherit (quote mode-line)))))
  '(spacemacs-hybrid-face ((t (:background "SkyBlue2" :foreground "#202020" :inherit (quote mode-line)))))
