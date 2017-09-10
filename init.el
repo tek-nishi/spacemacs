@@ -50,7 +50,7 @@ values."
                        shell-default-height 40)
      ;; spell-checking
      ;; syntax-checking
-     ;; version-control
+     version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -204,7 +204,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -416,5 +416,13 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
- 
+
+  (spacemacs/set-leader-keys "gl" 'vc-print-log)
+  (spacemacs/set-leader-keys "gL" 'vc-print-root-log)
+  (spacemacs/set-leader-keys "g=" 'vc-diff)
+  (spacemacs/set-leader-keys "gD" 'vc-root-diff)
+  (spacemacs/set-leader-keys "gg" 'vc-annotate)
+  (spacemacs/set-leader-keys "gd" 'vc-dir)
+  (spacemacs/set-leader-keys "gt" 'vc-create-tag)
+
   (setq gc-cons-threshold (* 8 1024 1024)))
