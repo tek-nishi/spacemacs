@@ -326,6 +326,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; Info path
+  (setq Info-default-directory-list (list (expand-file-name "../info" data-directory)))
   ;;カスタマイズ変数を読み込む
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (when (file-exists-p custom-file)
@@ -417,6 +419,7 @@ you should place your code here."
   (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
 
+  ;; vc-modeのキーバインド
   (spacemacs/set-leader-keys "gl" 'vc-print-log)
   (spacemacs/set-leader-keys "gL" 'vc-print-root-log)
   (spacemacs/set-leader-keys "g=" 'vc-diff)
@@ -424,5 +427,6 @@ you should place your code here."
   (spacemacs/set-leader-keys "gg" 'vc-annotate)
   (spacemacs/set-leader-keys "gd" 'vc-dir)
   (spacemacs/set-leader-keys "gt" 'vc-create-tag)
+
 
   (setq gc-cons-threshold (* 8 1024 1024)))
