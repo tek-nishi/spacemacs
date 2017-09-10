@@ -79,6 +79,7 @@
  '(font-lock-function-name-face ((t (:inherit default :foreground "#000000"))))
  '(font-lock-keyword-face ((t (:inherit default :foreground "#AA0D91"))))
  '(font-lock-type-face ((t (:inherit default :foreground "#ba2f59"))))
+ '(fringe ((t (:background "#F0F0E8" :foreground "#000000"))))
  '(org-agenda-done ((t (:foreground "#00A000" :height 1.0))))
  '(org-done ((t (:inherit bold :foreground "#00A000" :background nil))))
  '(org-level-1 ((t (:inherit default :foreground "#3a81c3" :height 1.0))))
