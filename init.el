@@ -327,7 +327,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; Info path
-  (setq Info-default-directory-list (list (expand-file-name "../info" data-directory)))
+  (setq Info-default-directory-list (list (expand-file-name "info" dotspacemacs-directory)
+                                          (expand-file-name "../info" data-directory)))
   ;;カスタマイズ変数を読み込む
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (when (file-exists-p custom-file)
@@ -409,14 +410,15 @@ you should place your code here."
   (setq auto-save-buffers-enhanced-quiet-save-p t)
   (auto-save-buffers-enhanced t)
 
+  ;; 左右マージン
   (require 'wm)
   (wm-turn-on)
   (spacemacs/set-leader-keys "w," 'wm-toggle)
 
   ;; カーソル移動を見た目で work-around
-  (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>")     'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-  (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+  (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>")     'evil-next-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
 
   ;; vc-modeのキーバインド
@@ -428,5 +430,8 @@ you should place your code here."
   (spacemacs/set-leader-keys "gd" 'vc-dir)
   (spacemacs/set-leader-keys "gt" 'vc-create-tag)
 
-
+  ;; diffでwhitespace非表示のwork-around
+  (remove-hook 'diff-mode-hook 'whitespace-mode)
+  (remove-hook 'diff-mode-hook 'spacemacs//set-whitespace-style-for-diff)
+ 
   (setq gc-cons-threshold (* 8 1024 1024)))

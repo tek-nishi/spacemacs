@@ -76,6 +76,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(diff-added ((t (:background "#D0F0D0" :foreground "#000000"))))
+ '(diff-indicator-added ((t (:background "#D0F0D0" :foreground "#000000"))))
+ '(diff-removed ((t (:background "#FFD0D0" :foreground "#000000"))))
+ '(diff-indicator-removed ((t (:background "#FFD0D0" :foreground "#000000"))))
  '(font-lock-function-name-face ((t (:inherit default :foreground "#000000"))))
  '(font-lock-keyword-face ((t (:inherit default :foreground "#AA0D91"))))
  '(font-lock-type-face ((t (:inherit default :foreground "#ba2f59"))))
