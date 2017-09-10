@@ -429,6 +429,7 @@ you should place your code here."
   (spacemacs/set-leader-keys "gg" 'vc-annotate)
   (spacemacs/set-leader-keys "gd" 'vc-dir)
   (spacemacs/set-leader-keys "gt" 'vc-create-tag)
+  (spacemacs/set-leader-keys "gp" 'projectile-vc)
 
   ;; diffでwhitespace非表示のwork-around
   (remove-hook 'diff-mode-hook 'whitespace-mode)
