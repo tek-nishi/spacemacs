@@ -17,11 +17,12 @@
  '(helm-buffer-max-length 40)
  '(hl-todo-keyword-faces
    (quote
-    (("TODO" . "#D00000")
-     ("NEXT" . "#0000D0")
-     ("DONE" . "#009000")
-     ("NOTE" . "#AA0D91")
-     ("FIXME" . "#D00000")
+    (("TODO"   . "#D00000")
+     ("NEXT"   . "#0000D0")
+     ("DONE"   . "#009000")
+     ("NOTE"   . "#AA0D91")
+     ("FIXME"  . "#D00000")
+     ("TIPS"   . "#AA0D91")
      ("SOURCE" . "#AA0D91")
      ("NOTICE" . "#AA0D91"))))
  '(ls-lisp-dirs-first t)
@@ -35,12 +36,12 @@
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-skip-timestamp-if-done t)
- '(org-agenda-tags-column -147)
+ '(org-agenda-tags-column (quote auto))
  '(org-agenda-time-grid
    (quote
-    ((today require-timed)
-     "----------------"
-     (800 1000 1200 1400 1600 1800 2000 2200))))
+    ((daily today require-timed)
+     (800 1000 1200 1400 1600 1800 2000 2200)
+     "......" "----------------")))
  '(org-agenda-window-setup (quote current-window))
  '(org-auto-align-tags t)
  '(org-bullets-bullet-list (quote ("◉" "∗" "∙" "◦")))
@@ -78,8 +79,8 @@
  ;; If there is more than one, they won't work right.
  '(diff-added ((t (:background "#D0F0D0" :foreground "#000000"))))
  '(diff-indicator-added ((t (:background "#D0F0D0" :foreground "#000000"))))
- '(diff-removed ((t (:background "#FFD0D0" :foreground "#000000"))))
  '(diff-indicator-removed ((t (:background "#FFD0D0" :foreground "#000000"))))
+ '(diff-removed ((t (:background "#FFD0D0" :foreground "#000000"))))
  '(font-lock-function-name-face ((t (:inherit default :foreground "#000000"))))
  '(font-lock-keyword-face ((t (:inherit default :foreground "#AA0D91"))))
  '(font-lock-type-face ((t (:inherit default :foreground "#ba2f59"))))

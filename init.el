@@ -40,13 +40,12 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     (c-c++ :variables truncate-lines nil)
+     (c-c++ :variables truncate-lines t)
      ;; javascript
      markdown
      ;; git
      org
      (shell :variables shell-default-shell 'shell
-                       ;;shell-default-position 'bottom
                        shell-default-height 40)
      ;; spell-checking
      ;; syntax-checking
@@ -81,6 +80,8 @@ values."
                                     ;;helm-projectile
                                     golden-ratio
                                     ;;anzu
+                                    magithub
+                                    tern
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -343,35 +344,33 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (add-to-list 'load-path (expand-file-name "~/.spacemacs.d/lisp"))
-  ;; 左右マージン
-  ;;(require 'wm)
-  ;;(setq wm-window-width 148)
-  ;;(wm-turn-on)
   ;; diredの挙動をWindowsと揃える
   (load-library "ls-lisp")
+
+  (setq frame-title-format " %b %f")
+
+  (require 'ucs-normalize)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system   'utf-8-hfs)
   ;; git grep が utf-8-hfs に対応していないためのwork around
   (defun my-shell-quote-argument (shell-quote-argument str)
     (funcall shell-quote-argument (ucs-normalize-NFD-string str)))
   (advice-add 'shell-quote-argument :around 'my-shell-quote-argument)
+  ;; バッファを閉じる時のクエリを抑止
+  (defun shell-mode-hooks ()
+    (set-process-query-on-exit-flag (get-buffer-process (current-buffer)) nil)
+    )
+  (add-hook 'shell-mode-hook 'shell-mode-hooks)
 
-  (setq frame-title-format " %b %f")
-  (require 'ucs-normalize)
-  (set-file-name-coding-system 'utf-8-hfs)
-  (setq locale-coding-system   'utf-8-hfs)
-  ;; Rictyだとpowerlineのシンボルに想定外のフォントが使われてしまうためのwork-around
+  ;; Rictyだとpowerlineのシンボルに想定外のフォントが使われてしまうためのworkaround
   (set-fontset-font t 'symbol (font-spec :name "Hiragino Sans-16"))
   ;; マイナーモードの表示 
   (spacemacs|diminish view-mode " Ⓥ" " V")
   (spacemacs|diminish centered-cursor-mode " ㊀" " -")
+  
   ;; スクラッチバッファを永続化  
   (persistent-scratch-setup-default)
-  (defun shell-mode-hooks ()
-    (set-process-query-on-exit-flag (get-buffer-process (current-buffer)) nil)
-    ;;(ansi-color-for-comint-mode-on)
-    ;;(setq comint-file-name-quote-list (append shell-delimiter-argument-list '(?\s ?$ ?\* ?\! ?\" ?\' ?\` ?\# ?\\)))
-    )
-  (add-hook 'shell-mode-hook 'shell-mode-hooks)
-
+  
   ;; agenga viewからRETを押してorgを表示した時に、sub-treeを展開する
   (defun my-org-agenda-after-show-hooks ()
     (org-cycle))
@@ -380,7 +379,7 @@ you should place your code here."
   ;; alt+arrowでwindowを移動
   (windmove-default-keybindings 'alt)
 
-  ;; shell-popでshellを表示する時に、設定を無視して画面上部に表示されてしまうwork-around
+  ;; shell-popでshellを表示する時に、設定を無視して画面上部に表示されてしまうworkaround
   (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
   ;; LISP構文の間違いを警告するfont-lockを無効にする
@@ -388,7 +387,6 @@ you should place your code here."
     (if (not (and (boundp 'use-my-lisp--match-hidden-arg) 'use-my-lisp--match-hidden-arg))
         ad-do-it))
   (ad-activate 'lisp--match-hidden-arg)
-  ;; scratch buffer の hook
   (defun lisp-interaction-mode-hooks ()
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
   (add-hook 'lisp-interaction-mode-hook 'lisp-interaction-mode-hooks)
@@ -412,10 +410,10 @@ you should place your code here."
 
   ;; 左右マージン
   (require 'wm)
-  (wm-turn-on)
   (spacemacs/set-leader-keys "w," 'wm-toggle)
+  (wm-turn-on)
 
-  ;; カーソル移動を見た目で work-around
+  ;; カーソル移動を見た目で workaround
   (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>")     'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>")     'evil-next-visual-line)
@@ -431,8 +429,12 @@ you should place your code here."
   (spacemacs/set-leader-keys "gt" 'vc-create-tag)
   (spacemacs/set-leader-keys "gp" 'projectile-vc)
 
-  ;; diffでwhitespace非表示のwork-around
+  ;; diffでwhitespace非表示のworkaround
   (remove-hook 'diff-mode-hook 'whitespace-mode)
   (remove-hook 'diff-mode-hook 'spacemacs//set-whitespace-style-for-diff)
- 
-  (setq gc-cons-threshold (* 8 1024 1024)))
+  ;; workaround
+  (require 'helm-bookmark)
+
+  ;; GCの閾値を初期値に戻す
+  (setq gc-cons-threshold (* 8 1024 1024))
+  )
