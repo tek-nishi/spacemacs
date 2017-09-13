@@ -361,6 +361,8 @@ you should place your code here."
     (set-process-query-on-exit-flag (get-buffer-process (current-buffer)) nil)
     )
   (add-hook 'shell-mode-hook 'shell-mode-hooks)
+  ;; shell-popでshellを表示する時に、設定を無視して画面上部に表示されてしまうworkaround
+  (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
   ;; Rictyだとpowerlineのシンボルに想定外のフォントが使われてしまうためのworkaround
   (set-fontset-font t 'symbol (font-spec :name "Hiragino Sans-16"))
@@ -378,9 +380,6 @@ you should place your code here."
 
   ;; alt+arrowでwindowを移動
   (windmove-default-keybindings 'alt)
-
-  ;; shell-popでshellを表示する時に、設定を無視して画面上部に表示されてしまうworkaround
-  (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
   ;; LISP構文の間違いを警告するfont-lockを無効にする
   (defadvice lisp--match-hidden-arg (around lisp--match-hidden-arg-wrapper)
