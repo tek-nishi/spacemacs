@@ -40,7 +40,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     (c-c++ :variables truncate-lines t)
+     c-c++
      ;; javascript
      markdown
      ;; git
@@ -390,6 +390,36 @@ you should place your code here."
   (defun lisp-interaction-mode-hooks ()
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
   (add-hook 'lisp-interaction-mode-hook 'lisp-interaction-mode-hooks)
+
+  ;; c++modeでの設定
+  (defun c-mode-common-hooks ()
+    (setq truncate-lines t)
+    ;; (setq wrap-prefix t)
+    (setq tab-width 2)
+    (setq indent-tabs-mode nil)
+    ;; (setq comment-column 52)
+    ;; (setq comment-fill-column 500)
+
+    (c-set-style "stroustrup")
+    (setq c-basic-offset 2)
+    ;; C-c C-s でその行の statement を解析する
+    (c-set-offset 'inextern-lang 0)
+    (c-set-offset 'statement-case-intro '+)
+    (c-set-offset 'statement-case-open '+)
+    (c-set-offset 'arglist-close '-)
+    (c-set-offset 'substatement 0)
+    (c-set-offset 'innamespace 0)
+    (c-set-offset 'inline-open 0)
+    (c-set-offset 'objc-method-call-cont '++)
+    (c-set-offset 'statement-cont 'c-lineup-assignments)
+
+    (setq c-electric-pound-behavior '(alignleft))
+    ;; (electric-pair-local-mode)
+
+    ;; (local-set-key "\C-co" 'ff-find-other-file)
+    ;; (local-set-key "\C-c\C-o" 'ff-find-other-file)
+    )
+  (add-hook 'c-mode-common-hook 'c-mode-common-hooks)
 
   ;; 行末の空白を色分けしない
   (setq spacemacs-show-trailing-whitespace nil)
