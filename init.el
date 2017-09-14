@@ -466,4 +466,18 @@ you should place your code here."
 
   ;; GCの閾値を初期値に戻す
   (setq gc-cons-threshold (* 8 1024 1024))
+
+  ;; 曖昧な文字幅を全て二文字扱いにする
+  (require 'eaw)
+  (eaw-fullwidth)
+  
+  ;; バッファの文字コード表示に改行とBOM付きを加える
+  (spaceline-define-segment buffer-encoding-abbrev
+    "The line ending convention used in the buffer."
+    (let ((buf-coding (format "%s" buffer-file-coding-system)))
+      (replace-regexp-in-string "-with-signature" "ⓑ"
+         (replace-regexp-in-string "-unix" "ⓤ"
+            (replace-regexp-in-string "-dos" "ⓓ"
+               (replace-regexp-in-string "-mac" "ⓜ" buf-coding)))))
+    )
   )
