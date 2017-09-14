@@ -475,9 +475,11 @@ you should place your code here."
   (spaceline-define-segment buffer-encoding-abbrev
     "The line ending convention used in the buffer."
     (let ((buf-coding (format "%s" buffer-file-coding-system)))
-      (replace-regexp-in-string "-with-signature" "ⓑ"
-         (replace-regexp-in-string "-unix" "ⓤ"
-            (replace-regexp-in-string "-dos" "ⓓ"
-               (replace-regexp-in-string "-mac" "ⓜ" buf-coding)))))
-    )
+      (list (replace-regexp-in-string "-with-signature\\|-unix\\|-dos\\|-mac" "" buf-coding)
+            (concat (and (string-match "with-signature" buf-coding) "ⓑ")
+                    (and (string-match "unix"           buf-coding) "ⓤ")
+                    (and (string-match "dos"            buf-coding) "ⓓ")
+                    (and (string-match "mac"            buf-coding) "ⓜ")
+                    )))
+    :separator " ")
   )
