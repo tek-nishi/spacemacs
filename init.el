@@ -82,6 +82,8 @@ values."
                                     ;;anzu
                                     magithub
                                     tern
+                                    git-gutter
+                                    git-gutter+
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -461,6 +463,7 @@ you should place your code here."
   ;; diffでwhitespace非表示のworkaround
   (remove-hook 'diff-mode-hook 'whitespace-mode)
   (remove-hook 'diff-mode-hook 'spacemacs//set-whitespace-style-for-diff)
+  
   ;; workaround
   (require 'helm-bookmark)
 

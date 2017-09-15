@@ -9,6 +9,7 @@
    [default default default italic underline success warning error])
  '(cc-search-directories (quote ("." "include" "../include")))
  '(dired-listing-switches "-lahX")
+ '(dumb-jump-default-project ".")
  '(dumb-jump-git-grep-cmd "git -c core.precomposeUnicode=false grep")
  '(evil-want-Y-yank-to-eol nil)
  '(explicit-bash-args
