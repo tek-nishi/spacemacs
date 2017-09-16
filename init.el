@@ -45,6 +45,7 @@ values."
      markdown
      ;; git
      org
+     html
      (shell :variables shell-default-shell 'shell
                        shell-default-height 40)
      ;; spell-checking
@@ -178,7 +179,7 @@ values."
    dotspacemacs-emacs-leader-key nil
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
-   dotspacemacs-major-mode-leader-key nil
+   dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key nil
@@ -196,7 +197,7 @@ values."
    dotspacemacs-retain-visual-state-on-shift t
    ;; If non-nil, J and K move lines up and down when in visual mode.
    ;; (default nil)
-   dotspacemacs-visual-line-move-text t
+   dotspacemacs-visual-line-move-text nil
    ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
    dotspacemacs-ex-substitute-global nil
@@ -302,7 +303,7 @@ values."
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
-   dotspacemacs-highlight-delimiters 'current
+   dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
    dotspacemacs-persistent-server nil
@@ -416,11 +417,16 @@ you should place your code here."
 
     (setq c-electric-pound-behavior '(alignleft))
     ;; (electric-pair-local-mode)
-
-    ;; (local-set-key "\C-co" 'ff-find-other-file)
-    ;; (local-set-key "\C-c\C-o" 'ff-find-other-file)
+    (show-paren-mode)
     )
   (add-hook 'c-mode-common-hook 'c-mode-common-hooks)
+
+  ;; (remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
+  (remove-hook 'prog-mode-hook 'smartparens-mode)
+  (add-hook 'prog-mode-hook 'show-paren-mode)
+
+  ;; show-smartparens-mode
+
 
   ;; 行末の空白を色分けしない
   (setq spacemacs-show-trailing-whitespace nil)
@@ -485,4 +491,8 @@ you should place your code here."
                     (and (string-match "mac"            buf-coding) "ⓜ")
                     )))
     :separator " ")
+
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
+
+  (spacemacs/set-leader-keys "jo" 'ff-find-other-file)
   )
