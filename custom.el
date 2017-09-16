@@ -20,12 +20,12 @@
  '(hl-todo-activate-in-modes (quote (prog-mode c++-mode)))
  '(hl-todo-keyword-faces
    (quote
-    (("TODO" . "#D00000")
-     ("NOTE" . "#0000D0")
-     ("FIXME" . "#D00000")
-     ("TIPS" . "#AA0D91")
-     ("SOURCE" . "#0000D0")
-     ("NOTICE" . "#AA0D91"))))
+    (("TODO:" . "#D00000")
+     ("NOTE:" . "#0000D0")
+     ("FIXME:" . "#D00000")
+     ("TIPS:" . "#AA0D91")
+     ("SOURCE:" . "#0000D0")
+     ("NOTICE:" . "#AA0D91"))))
  '(ls-lisp-dirs-first t)
  '(ls-lisp-ignore-case t)
  '(ls-lisp-use-insert-directory-program nil)
@@ -78,7 +78,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(show-paren-match ((((class color) (background light)) (:background "#90e0e0"))))
  '(diff-added ((t (:background "#D0F0D0" :foreground "#000000"))))
  '(diff-indicator-added ((t (:background "#D0F0D0" :foreground "#000000"))))
  '(diff-indicator-removed ((t (:background "#FFD0D0" :foreground "#000000"))))
@@ -93,6 +92,7 @@
  '(org-level-2 ((t (:inherit unspecified :foreground "#2d9574" :height 1.0))))
  '(org-time-grid ((t (:foreground "#4f8f00"))))
  '(org-todo ((t (:inherit bold :background nil :foreground "#E00000"))))
+ '(show-paren-match ((((class color) (background light)) (:background "#90e0e0"))))
  '(spacemacs-emacs-face ((t (:background "SkyBlue2" :foreground "#202020" :inherit (quote mode-line)))))
  '(spacemacs-evilified-face ((t (:background "LightGoldenrod3" :foreground "#202020" :inherit (quote mode-line)))))
  '(spacemacs-hybrid-face ((t (:background "SkyBlue2" :foreground "#202020" :inherit (quote mode-line)))))

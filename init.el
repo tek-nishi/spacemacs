@@ -339,6 +339,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (load custom-file))
 )
 
+
+;; 対応する括弧を表示する ON
+(defun my-show-paren-mode-toggle-on ()
+  (setq-local show-paren-mode t))
+
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -351,6 +357,9 @@ you should place your code here."
   (load-library "ls-lisp")
 
   (setq frame-title-format " %b %f")
+
+  ;; TIPS: 対応する括弧のハイライトを有効にしつつ OFF
+  (show-paren-mode -1)
 
   (require 'ucs-normalize)
   (set-file-name-coding-system 'utf-8-hfs)
@@ -417,16 +426,13 @@ you should place your code here."
 
     (setq c-electric-pound-behavior '(alignleft))
     ;; (electric-pair-local-mode)
-    (show-paren-mode)
+    (my-show-paren-mode-toggle-on)
     )
   (add-hook 'c-mode-common-hook 'c-mode-common-hooks)
 
   ;; (remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
   (remove-hook 'prog-mode-hook 'smartparens-mode)
-  (add-hook 'prog-mode-hook 'show-paren-mode)
-
-  ;; show-smartparens-mode
-
+  (add-hook 'prog-mode-hook 'my-show-paren-mode-toggle-on)
 
   ;; 行末の空白を色分けしない
   (setq spacemacs-show-trailing-whitespace nil)
