@@ -30,7 +30,6 @@
  '(ls-lisp-ignore-case t)
  '(ls-lisp-use-insert-directory-program nil)
  '(ls-lisp-use-localized-time-format t)
- '(mac-auto-ascii-mode t)
  '(mouse-highlight nil)
  '(org-agenda-files (quote ("~/to-do.org")))
  '(org-agenda-log-mode-items (quote (closed clock state)))

@@ -447,7 +447,7 @@ you should place your code here."
 
   (require 'auto-save-buffers-enhanced)
   (setq auto-save-buffers-enhanced-include-regexps '("\\.\\(hpp\\|cpp\\|c\\|h\\|m\\|mm\\|pl\\|cgi\\|json\\|param\\|vsh\\|fsh\\)$"))
-  (setq auto-save-buffers-enhanced-interval 1)
+  (setq auto-save-buffers-enhanced-interval 0.5)
   (setq auto-save-buffers-enhanced-quiet-save-p t)
   (auto-save-buffers-enhanced t)
 
