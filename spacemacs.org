@@ -79,3 +79,18 @@
 |            |                                                        |
 
  
+* org-mode
+| TAB            | table操作                      |
+| SPC m i l      | link挿入                       |
+| SPC m .        | time-stamp                     |
+| SPC m d        | dead line                      |
+| SPC m s        | scheduled                      |
+| SPC m RET      | org C-RET                      |
+| C-RET          | new headline                   |
+| SPC m *        | ヘッドラインにしたり解除したり |
+| SPC m P        | プロパティ挿入                 |
+| SHIFT L or R   | TODO変更 or 箇条書き変更       |
+| SPC m .        | Set Tags                       |
+| command + 矢印 | move headline                  |
+
+

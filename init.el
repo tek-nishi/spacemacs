@@ -427,6 +427,7 @@ you should place your code here."
     (setq c-electric-pound-behavior '(alignleft))
     ;; (electric-pair-local-mode)
     (my-show-paren-mode-toggle-on)
+    (highlight-numbers-mode)
     )
   (add-hook 'c-mode-common-hook 'c-mode-common-hooks)
 
@@ -501,4 +502,37 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
 
   (spacemacs/set-leader-keys "jo" 'ff-find-other-file)
+  
+  ;; キーワード挿入
+  (defun my-TODO ()
+    (interactive)
+    (insert "TODO:")) 
+
+  (defun my-FIXME()
+    (interactive)
+    (insert "FIXME:")) 
+
+  (defun my-TIPS()
+    (interactive)
+    (insert "TIPS:")) 
+  
+  (defun my-SOURCE()
+    (interactive)
+    (insert "SOURCE:")) 
+  
+  (defun my-NOTICE()
+    (interactive)
+    (insert "NOTICE:"))
+
+  (spacemacs/set-leader-keys "iT" 'my-TODO)
+  (spacemacs/set-leader-keys "iF" 'my-FIXME)
+  (spacemacs/set-leader-keys "iP" 'my-TIPS)
+  (spacemacs/set-leader-keys "iS" 'my-SOURCE)
+  (spacemacs/set-leader-keys "iN" 'my-NOTICE)
+
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TODO\\'")   . (nil . "insert TODO:")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-FIXME\\'")  . (nil . "insert FIXME:")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS:")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE:")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE:")))
   )
