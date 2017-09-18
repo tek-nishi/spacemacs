@@ -84,7 +84,7 @@ values."
                                     magithub
                                     tern
                                     git-gutter
-                                    git-gutter+
+                                    ;; git-gutter+
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -502,27 +502,27 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
 
   (spacemacs/set-leader-keys "jo" 'ff-find-other-file)
-  
+
   ;; キーワード挿入
   (defun my-TODO ()
     (interactive)
-    (insert "TODO:")) 
+    (insert "TODO: ")) 
 
   (defun my-FIXME()
     (interactive)
-    (insert "FIXME:")) 
+    (insert "FIXME: ")) 
 
   (defun my-TIPS()
     (interactive)
-    (insert "TIPS:")) 
+    (insert "TIPS: ")) 
   
   (defun my-SOURCE()
     (interactive)
-    (insert "SOURCE:")) 
+    (insert "SOURCE: ")) 
   
   (defun my-NOTICE()
     (interactive)
-    (insert "NOTICE:"))
+    (insert "NOTICE: "))
 
   (spacemacs/set-leader-keys "iT" 'my-TODO)
   (spacemacs/set-leader-keys "iF" 'my-FIXME)
