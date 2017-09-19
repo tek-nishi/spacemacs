@@ -84,7 +84,6 @@ values."
                                     magithub
                                     tern
                                     git-gutter
-                                    ;; git-gutter+
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -535,4 +534,8 @@ you should place your code here."
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS:")))
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE:")))
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE:")))
+
+  ;; dumb-jump
+  (spacemacs/set-leader-keys "jg" 'dumb-jump-go)
+  (spacemacs/set-leader-keys "jq" nil)
   )
