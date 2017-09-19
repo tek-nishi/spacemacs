@@ -397,12 +397,13 @@ you should place your code here."
     (if (not (and (boundp 'use-my-lisp--match-hidden-arg) 'use-my-lisp--match-hidden-arg))
         ad-do-it))
   (ad-activate 'lisp--match-hidden-arg)
-  (defun lisp-interaction-mode-hooks ()
+  (defun my-lisp-interaction-mode-hooks ()
+    (rainbow-delimiters-mode-disable)
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
-  (add-hook 'lisp-interaction-mode-hook 'lisp-interaction-mode-hooks)
+  (add-hook 'lisp-interaction-mode-hook 'my-lisp-interaction-mode-hooks)
 
   ;; c++modeでの設定
-  (defun c-mode-common-hooks ()
+  (defun my-c-mode-common-hooks ()
     (setq truncate-lines t)
     ;; (setq wrap-prefix t)
     (setq tab-width 2)
@@ -428,7 +429,7 @@ you should place your code here."
     (my-show-paren-mode-toggle-on)
     (highlight-numbers-mode)
     )
-  (add-hook 'c-mode-common-hook 'c-mode-common-hooks)
+  (add-hook 'c-mode-common-hook 'my-c-mode-common-hooks)
 
   ;; (remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
   (remove-hook 'prog-mode-hook 'smartparens-mode)

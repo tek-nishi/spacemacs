@@ -77,7 +77,6 @@
 | ;,         | 一文字検索を繰り返す                                   |
 | gv         | 選択範囲を復元                                         |
 |            |                                                        |
-
  
 * org-mode
 | TAB            | table操作                      |
@@ -93,4 +92,6 @@
 | SPC m .        | Set Tags                       |
 | command + 矢印 | move headline                  |
 
-
+* dired
+| a | 新しくバッファを作らないで移動 |
+|   |                                |
