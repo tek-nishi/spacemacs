@@ -399,6 +399,7 @@ you should place your code here."
   (ad-activate 'lisp--match-hidden-arg)
   (defun my-lisp-interaction-mode-hooks ()
     (rainbow-delimiters-mode-disable)
+    (hl-todo-mode 0)
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
   (add-hook 'lisp-interaction-mode-hook 'my-lisp-interaction-mode-hooks)
 
@@ -423,7 +424,7 @@ you should place your code here."
     (c-set-offset 'inline-open 0)
     (c-set-offset 'objc-method-call-cont '++)
     (c-set-offset 'statement-cont 'c-lineup-assignments)
-
+    
     (setq c-electric-pound-behavior '(alignleft))
     ;; (electric-pair-local-mode)
     (my-show-paren-mode-toggle-on)
@@ -433,6 +434,7 @@ you should place your code here."
 
   ;; (remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
   (remove-hook 'prog-mode-hook 'smartparens-mode)
+  (remove-hook 'prog-mode-hook 'hl-todo-mode)
   (add-hook 'prog-mode-hook 'my-show-paren-mode-toggle-on)
 
   ;; 行末の空白を色分けしない
@@ -506,23 +508,23 @@ you should place your code here."
   ;; キーワード挿入
   (defun my-TODO ()
     (interactive)
-    (insert "TODO: ")) 
+    (insert "TODO:")) 
 
   (defun my-FIXME()
     (interactive)
-    (insert "FIXME: ")) 
+    (insert "FIXME:")) 
 
   (defun my-TIPS()
     (interactive)
-    (insert "TIPS: ")) 
+    (insert "TIPS:")) 
   
   (defun my-SOURCE()
     (interactive)
-    (insert "SOURCE: ")) 
+    (insert "SOURCE:")) 
   
   (defun my-NOTICE()
     (interactive)
-    (insert "NOTICE: "))
+    (insert "NOTICE:"))
 
   (spacemacs/set-leader-keys "iT" 'my-TODO)
   (spacemacs/set-leader-keys "iF" 'my-FIXME)
@@ -535,6 +537,7 @@ you should place your code here."
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS:")))
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE:")))
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE:")))
+  (global-hl-todo-mode t)
 
   ;; dumb-jump
   (spacemacs/set-leader-keys "jg" 'dumb-jump-go)
