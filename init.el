@@ -84,6 +84,7 @@ values."
                                     magithub
                                     tern
                                     git-gutter
+                                    smartparens
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -433,7 +434,7 @@ you should place your code here."
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hooks)
 
   ;; (remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
-  (remove-hook 'prog-mode-hook 'smartparens-mode)
+  ;; (remove-hook 'prog-mode-hook 'smartparens-mode)
   (remove-hook 'prog-mode-hook 'hl-todo-mode)
   (add-hook 'prog-mode-hook 'my-show-paren-mode-toggle-on)
 

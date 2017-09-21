@@ -1,82 +1,82 @@
 
 * spacemacsチートシート
-| u          | undo                                                   |
-| C-r        | redo                                                   |
-| i          | 挿入モード                                             |
-| I          | 行頭へ移動して挿入モード                               |
-| a          | カーソル位置の後ろへ挿入                               |
-| A          | 行末へ移動して挿入モード                               |
-| ^          | 行頭へ                                                 |
-| $          | 行末へ                                                 |
-| x          | 一文字削除                                             |
-| =          | indent                                                 |
-| TAB        | indent                                                 |
-| >          | right shift                                            |
-| <          | left shift                                             |
-| [          | 一つ前のブロックへ                                     |
-| ]          | 次のブロックへ                                         |
-| gg         | goto top                                               |
-| G          | goto bottom                                            |
-| dd         | delete line                                            |
-| d^         | 行頭まで削除                                           |
-| d$         | 行末まで削除                                           |
-| dw         | カーソル位置から単語の最後まで削除(空白込み)           |
-| de         | カーソル位置から単語の最後まで削除                     |
-| d          | delete reagion                                         |
-| D          | 行末まで削除                                           |
-| C-SPC or , | 選択開始                                               |
-| y          | Yank reagion                                           |
-| p          | paste after                                            |
-| P          | paste before                                           |
-| Y          | yank line                                              |
-| SPC m      | メジャーモードのキーバインドを表示                     |
-| C-M-x      | eval-defun                                             |
-| C-f        | 1ページ下へ                                            |
-| P          | paste before                                           |
-| C-b        | 1ページ上へ                                            |
-| {,}        | 段落間移動                                             |
-| w          | １語右へ                                               |
-| e          | goto end of a word                                     |
-| b          | １語左へ                                               |
-| C-o        | Jump back                                              |
-| zz         | カーソル位置を画面の中央へ                             |
-| g;         | goto last edited place                                 |
-| g,         | goto next edited place                                 |
-| gcc        | comment out a line                                     |
-| gc         | comment out reagion                                    |
-| yw         | copy a word(空白込み)                                  |
-| ye         | copy a word                                            |
-| yy         | copy a line                                            |
-| %          | 対応する括弧へ移動                                     |
-| K          | elispのdocumentを表示                                  |
-| /<key>     | 順方向に検索                                           |
-| ?<key>     | 逆方向に検索                                           |
-| n,N        | 検索結果を巡回                                         |
-| *          | カーソル位置の単語を準方向に検索                       |
-| #          | カーソル位置の単語を逆方向に検索                       |
-| //         | 前回の検索を繰り返す                                   |
-| Alt矢印    | 他のwindowへ移動                                       |
-| o          | 改行文字を追加して、次の行で挿入                       |
-| O          | 改行文字を追加して、前の行で挿入                       |
-| J          | 今いる行と次の行を結合(Join)する。行間にスペースを挟む |
-| gJ         | 今いる行と次の行を結合する。行間にスペースを挟まない   |
-| S          | 先頭まで消去して挿入モード                             |
-| s          | 一文字削除して挿入モード                               |
-| r          | 一文字置き換え                                         |
-| cw         | カーソル位置から単語を書き換え                         |
-| ce         |                                                        |
-| c$         |                                                        |
-| c^         |                                                        |
-| R          | 上書きモード                                           |
-| 0          | インデントを無視して先頭へ                             |
-| +          | 下の行の先頭へ                                         |
-| -          | 上の行の先頭へ                                         |
-| C-u,C-d    | 半画面移動                                             |
-| f,F        | 一行一文字検索                                         |
-| t,T        | 一行一文字検索                                         |
-| ;,         | 一文字検索を繰り返す                                   |
-| gv         | 選択範囲を復元                                         |
-|            |                                                        |
+| u       | undo                                                   |
+| C-r     | redo                                                   |
+| i       | 挿入モード                                             |
+| I       | 行頭へ移動して挿入モード                               |
+| a       | カーソル位置の後ろへ挿入                               |
+| A       | 行末へ移動して挿入モード                               |
+| ^       | 行頭へ                                                 |
+| $       | 行末へ                                                 |
+| x       | 一文字削除                                             |
+| =       | indent                                                 |
+| TAB     | indent                                                 |
+| >       | right shift                                            |
+| <       | left shift                                             |
+| [       | 一つ前のブロックへ                                     |
+| ]       | 次のブロックへ                                         |
+| gg      | goto top                                               |
+| G       | goto bottom                                            |
+| dd      | delete line                                            |
+| d^      | 行頭まで削除                                           |
+| d$      | 行末まで削除                                           |
+| dw      | カーソル位置から単語の最後まで削除(空白込み)           |
+| de      | カーソル位置から単語の最後まで削除                     |
+| d       | delete reagion                                         |
+| D       | 行末まで削除                                           |
+| C-SPC   | 選択開始                                               |
+| y       | Yank reagion                                           |
+| p       | paste after                                            |
+| P       | paste before                                           |
+| Y       | yank line                                              |
+| SPC m   | メジャーモードのキーバインドを表示                     |
+| C-M-x   | eval-defun                                             |
+| C-f     | 1ページ下へ                                            |
+| P       | paste before                                           |
+| C-b     | 1ページ上へ                                            |
+| {,}     | 段落間移動                                             |
+| w       | １語右へ                                               |
+| e       | goto end of a word                                     |
+| b       | １語左へ                                               |
+| C-o     | Jump back                                              |
+| zz      | カーソル位置を画面の中央へ                             |
+| g;      | goto last edited place                                 |
+| g,      | goto next edited place                                 |
+| gcc     | comment out a line                                     |
+| gc      | comment out reagion                                    |
+| yw      | copy a word(空白込み)                                  |
+| ye      | copy a word                                            |
+| yy      | copy a line                                            |
+| %       | 対応する括弧へ移動                                     |
+| K       | elispのdocumentを表示                                  |
+| /<key>  | 順方向に検索                                           |
+| ?<key>  | 逆方向に検索                                           |
+| n,N     | 検索結果を巡回                                         |
+| *       | カーソル位置の単語を準方向に検索                       |
+| #       | カーソル位置の単語を逆方向に検索                       |
+| //      | 前回の検索を繰り返す                                   |
+| Alt矢印 | 他のwindowへ移動                                       |
+| o       | 改行文字を追加して、次の行で挿入                       |
+| O       | 改行文字を追加して、前の行で挿入                       |
+| J       | 今いる行と次の行を結合(Join)する。行間にスペースを挟む |
+| gJ      | 今いる行と次の行を結合する。行間にスペースを挟まない   |
+| S       | 先頭まで消去して挿入モード                             |
+| s       | 一文字削除して挿入モード                               |
+| r       | 一文字置き換え                                         |
+| cw      | カーソル位置から単語を書き換え                         |
+| ce      |                                                        |
+| c$      |                                                        |
+| c^      |                                                        |
+| R       | 上書きモード                                           |
+| 0       | インデントを無視して先頭へ                             |
+| +       | 下の行の先頭へ                                         |
+| -       | 上の行の先頭へ                                         |
+| C-u,C-d | 半画面移動                                             |
+| f,F     | 一行一文字検索                                         |
+| t,T     | 一行一文字検索                                         |
+| ;,      | 一文字検索を繰り返す                                   |
+| gv      | 選択範囲を復元                                         |
+|         |                                                        |
  
 * org-mode
 | TAB            | table操作                      |
