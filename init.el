@@ -339,12 +339,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (load custom-file))
 )
 
-
-;; 対応する括弧を表示する ON
-(defun my-show-paren-mode-toggle-on ()
-  (setq-local show-paren-mode t))
-
-
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -404,6 +398,10 @@ you should place your code here."
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
   (add-hook 'lisp-interaction-mode-hook 'my-lisp-interaction-mode-hooks)
 
+  ;; 対応する括弧を表示する ON
+  (defun my-show-paren-mode-toggle-on ()
+    (setq-local show-paren-mode t))
+
   ;; c++modeでの設定
   (defun my-c-mode-common-hooks ()
     (setq truncate-lines t)
@@ -433,8 +431,6 @@ you should place your code here."
     )
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hooks)
 
-  ;; (remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
-  ;; (remove-hook 'prog-mode-hook 'smartparens-mode)
   (remove-hook 'prog-mode-hook 'hl-todo-mode)
   (add-hook 'prog-mode-hook 'my-show-paren-mode-toggle-on)
 
