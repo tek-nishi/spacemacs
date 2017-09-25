@@ -43,14 +43,14 @@ values."
      c-c++
      ;; javascript
      markdown
-     ;; git
+     git
      org
      html
      (shell :variables shell-default-shell 'shell
                        shell-default-height 40)
      ;; spell-checking
      ;; syntax-checking
-     version-control
+     ;; version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -81,7 +81,7 @@ values."
                                     ;;helm-projectile
                                     golden-ratio
                                     ;;anzu
-                                    magithub
+                                    ;; magithub
                                     tern
                                     git-gutter
                                     smartparens
@@ -463,14 +463,14 @@ you should place your code here."
   (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
 
   ;; vc-modeのキーバインド
-  (spacemacs/set-leader-keys "gl" 'vc-print-log)
-  (spacemacs/set-leader-keys "gL" 'vc-print-root-log)
-  (spacemacs/set-leader-keys "g=" 'vc-diff)
-  (spacemacs/set-leader-keys "gD" 'vc-root-diff)
-  (spacemacs/set-leader-keys "gg" 'vc-annotate)
-  (spacemacs/set-leader-keys "gd" 'vc-dir)
-  (spacemacs/set-leader-keys "gt" 'vc-create-tag)
-  (spacemacs/set-leader-keys "gp" 'projectile-vc)
+  ;; (spacemacs/set-leader-keys "gl" 'vc-print-log)
+  ;; (spacemacs/set-leader-keys "gL" 'vc-print-root-log)
+  ;; (spacemacs/set-leader-keys "g=" 'vc-diff)
+  ;; (spacemacs/set-leader-keys "gD" 'vc-root-diff)
+  ;; (spacemacs/set-leader-keys "gg" 'vc-annotate)
+  ;; (spacemacs/set-leader-keys "gd" 'vc-dir)
+  ;; (spacemacs/set-leader-keys "gt" 'vc-create-tag)
+  ;; (spacemacs/set-leader-keys "gp" 'projectile-vc)
 
   ;; diffでwhitespace非表示のworkaround
   (remove-hook 'diff-mode-hook 'whitespace-mode)
