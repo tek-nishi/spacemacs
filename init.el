@@ -75,7 +75,7 @@ values."
                                     ;;elisp-slime-nav
                                     paradox
                                     ;;persp-mode
-                                    ;;org-projectile
+                                    org-projectile
                                     open-junk-file
                                     multi-term
                                     ;;helm-projectile
