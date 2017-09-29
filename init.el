@@ -539,4 +539,6 @@ you should place your code here."
   ;; dumb-jump
   (spacemacs/set-leader-keys "jg" 'dumb-jump-go)
   (spacemacs/set-leader-keys "jq" nil)
+
+  (fset 'evil-visual-update-x-selection 'ignore)
   )
