@@ -85,6 +85,7 @@ values."
                                     tern
                                     git-gutter
                                     smartparens
+                                    rainbow-delimiters
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -393,7 +394,7 @@ you should place your code here."
         ad-do-it))
   (ad-activate 'lisp--match-hidden-arg)
   (defun my-lisp-interaction-mode-hooks ()
-    (rainbow-delimiters-mode-disable)
+    (highlight-parentheses-mode 0)
     (hl-todo-mode 0)
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
   (add-hook 'lisp-interaction-mode-hook 'my-lisp-interaction-mode-hooks)
@@ -461,17 +462,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>")     'evil-next-visual-line)
   (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-
-  ;; vc-modeのキーバインド
-  ;; (spacemacs/set-leader-keys "gl" 'vc-print-log)
-  ;; (spacemacs/set-leader-keys "gL" 'vc-print-root-log)
-  ;; (spacemacs/set-leader-keys "g=" 'vc-diff)
-  ;; (spacemacs/set-leader-keys "gD" 'vc-root-diff)
-  ;; (spacemacs/set-leader-keys "gg" 'vc-annotate)
-  ;; (spacemacs/set-leader-keys "gd" 'vc-dir)
-  ;; (spacemacs/set-leader-keys "gt" 'vc-create-tag)
-  ;; (spacemacs/set-leader-keys "gp" 'projectile-vc)
-
+  
   ;; diffでwhitespace非表示のworkaround
   (remove-hook 'diff-mode-hook 'whitespace-mode)
   (remove-hook 'diff-mode-hook 'spacemacs//set-whitespace-style-for-diff)
