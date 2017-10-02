@@ -396,6 +396,7 @@ you should place your code here."
   (defun my-lisp-interaction-mode-hooks ()
     (highlight-parentheses-mode 0)
     (hl-todo-mode 0)
+    (setq-local show-paren-mode nil)
     (set (make-local-variable 'use-my-lisp--match-hidden-arg) t))
   (add-hook 'lisp-interaction-mode-hook 'my-lisp-interaction-mode-hooks)
 
@@ -525,11 +526,14 @@ you should place your code here."
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS:")))
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE:")))
   (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE:")))
+  
   (global-hl-todo-mode t)
 
   ;; dumb-jump
   (spacemacs/set-leader-keys "jg" 'dumb-jump-go)
   (spacemacs/set-leader-keys "jq" nil)
+
+  (spacemacs/set-leader-keys "bC" 'set-buffer-file-coding-system)
 
   (fset 'evil-visual-update-x-selection 'ignore)
   )
