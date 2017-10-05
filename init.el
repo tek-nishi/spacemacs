@@ -50,7 +50,7 @@ values."
                        shell-default-height 40)
      ;; spell-checking
      ;; syntax-checking
-     ;; version-control
+     version-control 
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -455,7 +455,7 @@ you should place your code here."
 
   ;; 左右マージン
   (require 'wm)
-  (spacemacs/set-leader-keys "w," 'wm-toggle)
+  (spacemacs/set-leader-keys "t," 'wm-toggle)
   (wm-turn-on)
 
   ;; カーソル移動を見た目で workaround
@@ -534,6 +534,10 @@ you should place your code here."
   (spacemacs/set-leader-keys "jq" nil)
 
   (spacemacs/set-leader-keys "bC" 'set-buffer-file-coding-system)
+
+  ;; org-agenda
+  (eval-after-load "org-agenda"
+    '(define-key org-agenda-mode-map "u" 'org-agenda-undo))
 
   (fset 'evil-visual-update-x-selection 'ignore)
   )
