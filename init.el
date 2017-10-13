@@ -59,6 +59,7 @@ values."
    dotspacemacs-additional-packages '(
                                       persistent-scratch
                                       auto-save-buffers-enhanced
+                                      disable-mouse
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -540,4 +541,9 @@ you should place your code here."
     '(define-key org-agenda-mode-map "u" 'org-agenda-undo))
 
   (fset 'evil-visual-update-x-selection 'ignore)
+
+  ;; mouse禁止
+  (global-disable-mouse-mode)
+  (define-key evil-motion-state-map (kbd "<down-mouse-1>") nil)
+  (remove-hook 'helm-cleanup-hook #'spacemacs//unprevent-minibuffer-escape)
   )
