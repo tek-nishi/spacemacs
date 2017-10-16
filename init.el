@@ -546,4 +546,6 @@ you should place your code here."
   (global-disable-mouse-mode)
   (define-key evil-motion-state-map (kbd "<down-mouse-1>") nil)
   (remove-hook 'helm-cleanup-hook #'spacemacs//unprevent-minibuffer-escape)
+  ;; ピンチインでテキスト縮小
+  (define-key global-map (kbd "<magnify-down>") 'mac-magnify-text-scale)
   )
