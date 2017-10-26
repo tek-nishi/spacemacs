@@ -548,4 +548,5 @@ you should place your code here."
   (remove-hook 'helm-cleanup-hook #'spacemacs//unprevent-minibuffer-escape)
   ;; ピンチインでテキスト縮小
   (define-key global-map (kbd "<magnify-down>") 'mac-magnify-text-scale)
+  (define-key global-map (kbd "<magnify-up>") 'mac-magnify-text-scale)
   )
