@@ -498,23 +498,23 @@ you should place your code here."
   ;; キーワード挿入
   (defun my-TODO ()
     (interactive)
-    (insert "TODO:")) 
+    (insert "TODO ")) 
 
   (defun my-FIXME()
     (interactive)
-    (insert "FIXME:")) 
+    (insert "FIXME ")) 
 
   (defun my-TIPS()
     (interactive)
-    (insert "TIPS:")) 
+    (insert "TIPS ")) 
   
   (defun my-SOURCE()
     (interactive)
-    (insert "SOURCE:")) 
+    (insert "SOURCE ")) 
   
   (defun my-NOTICE()
     (interactive)
-    (insert "NOTICE:"))
+    (insert "NOTICE "))
 
   (spacemacs/set-leader-keys "iT" 'my-TODO)
   (spacemacs/set-leader-keys "iF" 'my-FIXME)
@@ -522,11 +522,11 @@ you should place your code here."
   (spacemacs/set-leader-keys "iS" 'my-SOURCE)
   (spacemacs/set-leader-keys "iN" 'my-NOTICE)
 
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TODO\\'")   . (nil . "insert TODO:")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-FIXME\\'")  . (nil . "insert FIXME:")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS:")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE:")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE:")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TODO\\'")   . (nil . "insert TODO")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-FIXME\\'")  . (nil . "insert FIXME")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE")))
+  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE")))
   
   (global-hl-todo-mode t)
 
@@ -549,4 +549,7 @@ you should place your code here."
   ;; ピンチインでテキスト縮小
   (define-key global-map (kbd "<magnify-down>") 'mac-magnify-text-scale)
   (define-key global-map (kbd "<magnify-up>") 'mac-magnify-text-scale)
+
+  ;; FIXME ieditでの関数名が変わった
+  (fset 'iedit-toggle-unmatched-lines-visible 'iedit-show/hide-unmatched-lines)
   )
