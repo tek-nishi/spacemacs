@@ -178,7 +178,7 @@ values."
    dotspacemacs-ex-command-key ":"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key nil
+   dotspacemacs-emacs-leader-key ""
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
@@ -469,9 +469,6 @@ you should place your code here."
   (remove-hook 'diff-mode-hook 'whitespace-mode)
   (remove-hook 'diff-mode-hook 'spacemacs//set-whitespace-style-for-diff)
   
-  ;; workaround
-  (require 'helm-bookmark)
-
   ;; GCの閾値を初期値に戻す
   (setq gc-cons-threshold (* 8 1024 1024))
 
