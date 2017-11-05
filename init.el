@@ -348,7 +348,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (add-to-list 'load-path (expand-file-name "~/.spacemacs.d/lisp"))
+  (add-to-list 'load-path (expand-file-name "lisp" dotspacemacs-directory))
   ;; diredの挙動をWindowsと揃える
   (load-library "ls-lisp")
 
