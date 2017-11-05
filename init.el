@@ -542,7 +542,10 @@ you should place your code here."
   ;; mouse禁止
   (global-disable-mouse-mode)
   (define-key evil-motion-state-map (kbd "<down-mouse-1>") nil)
-  (remove-hook 'helm-cleanup-hook #'spacemacs//unprevent-minibuffer-escape)
+  (with-eval-after-load 'helm
+    (remove-hook 'helm-after-initialize-hook 'spacemacs//prevent-minibuffer-escape)
+    (remove-hook 'helm-cleanup-hook 'spacemacs//unprevent-minibuffer-escape)
+    )
   ;; ピンチインでテキスト縮小
   (define-key global-map (kbd "<magnify-down>") 'mac-magnify-text-scale)
   (define-key global-map (kbd "<magnify-up>") 'mac-magnify-text-scale)
