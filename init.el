@@ -333,6 +333,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; 新しいリリースまでパッケージはstableを使う
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '(use-package . "melpa-stable") package-pinned-packages) 
   ;; Info path
   (setq Info-default-directory-list (list (expand-file-name "info" dotspacemacs-directory)
                                           (expand-file-name "../info" data-directory)))
