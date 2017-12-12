@@ -46,6 +46,7 @@ values."
      git
      org
      html
+     haskell
      (shell :variables shell-default-shell 'shell
                        shell-default-height 40)
      ;; spell-checking
@@ -60,6 +61,7 @@ values."
                                       persistent-scratch
                                       auto-save-buffers-enhanced
                                       disable-mouse
+                                      tidal
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -556,4 +558,16 @@ you should place your code here."
 
   ;; FIXME ieditでの関数名が変わった
   (fset 'iedit-toggle-unmatched-lines-visible 'iedit-show/hide-unmatched-lines)
+  ;; Tidal
+  (setq tidal-interpreter "/usr/local/bin/stack")
+  (setq tidal-interpreter-arguments
+        (list "repl"
+              "--ghci-options=-XOverloadedStrings"
+              ))
+
+  ;; SuperCollider
+  (with-eval-after-load "tidal"
+    (require 'sclang)
+    (define-key tidal-mode-map (kbd "C-c s s") 'sclang-start)
+    (define-key tidal-mode-map (kbd "C-c s q") 'sclang-quit))
   )
