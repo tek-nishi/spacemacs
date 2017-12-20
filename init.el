@@ -41,6 +41,7 @@ values."
      ;; better-defaults
      emacs-lisp
      c-c++
+     shaders
      ;; javascript
      markdown
      git
@@ -570,4 +571,12 @@ you should place your code here."
     (require 'sclang)
     (define-key tidal-mode-map (kbd "C-c s s") 'sclang-start)
     (define-key tidal-mode-map (kbd "C-c s q") 'sclang-quit))
+
+  ;; GLSL
+  (defun glsl-mode-hooks ()
+    ;; (setq tab-width 2)
+    ;; (setq indent-tabs-mode nil)
+    (add-to-list 'glsl-other-file-alist '("\\.fsh$" (".vsh"))) 
+    (add-to-list 'glsl-other-file-alist '("\\.vsh$" (".fsh")))) 
+  (add-hook 'glsl-mode-hook 'glsl-mode-hooks)
   )
