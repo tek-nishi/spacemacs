@@ -92,6 +92,8 @@
 | SHIFT L or R   | TODO変更 or 箇条書き変更       |
 | SPC m .        | Set Tags                       |
 | command + 矢印 | move headline                  |
+| t              | cycle TODO                     |
+| T              | TODO headline 挿入             |
 
 * dired
 | a | 新しくバッファを作らないで移動 |
