@@ -547,17 +547,7 @@ you should place your code here."
   (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; mouse禁止
-  (defconst disable-mouse--bindings
-    '("mouse-1" "mouse-2" "mouse-3"
-      "up-mouse-1" "up-mouse-2" "up-mouse-3"
-      "down-mouse-1" "down-mouse-2" "down-mouse-3"
-      "drag-mouse-1" "drag-mouse-2" "drag-mouse-3"
-      "mouse-4" "mouse-5"
-      "up-mouse-4" "up-mouse-5"
-      "down-mouse-4" "down-mouse-5"
-      "drag-mouse-4" "drag-mouse-5"
-      ;; "wheel-up" "wheel-down" "wheel-left" "wheel-right"
-      ))
+  (setq disable-mouse-wheel-events nil)
   (global-disable-mouse-mode)
   (define-key evil-motion-state-map (kbd "<down-mouse-1>") nil)
   (with-eval-after-load 'helm
@@ -570,6 +560,7 @@ you should place your code here."
 
   ;; FIXME ieditでの関数名が変わった
   (fset 'iedit-toggle-unmatched-lines-visible 'iedit-show/hide-unmatched-lines)
+
   ;; Tidal
   (setq tidal-interpreter "/usr/local/bin/stack")
   (setq tidal-interpreter-arguments
