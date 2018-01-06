@@ -574,6 +574,9 @@ you should place your code here."
     (define-key tidal-mode-map (kbd "C-c s s") 'sclang-start)
     (define-key tidal-mode-map (kbd "C-c s q") 'sclang-quit))
 
+  ;; 電卓
+  ;; (spacemacs/set-leader-keys "ac" 'calculator)
+
   ;; GLSL
   (defun glsl-mode-hooks ()
     ;; (setq tab-width 2)
