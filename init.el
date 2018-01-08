@@ -536,6 +536,7 @@ you should place your code here."
 
   ;; dumb-jump
   (spacemacs/set-leader-keys "jg" 'dumb-jump-go)
+  (spacemacs/set-leader-keys "jp" 'dumb-jump-back)
   ;; (spacemacs/set-leader-keys "jq" nil)
 
   (spacemacs/set-leader-keys "bC" 'set-buffer-file-coding-system)
