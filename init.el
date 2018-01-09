@@ -41,6 +41,7 @@ values."
      ;; better-defaults
      emacs-lisp
      c-c++
+     javascript
      shaders
      ;; javascript
      markdown
@@ -576,7 +577,8 @@ you should place your code here."
     (define-key tidal-mode-map (kbd "C-c s q") 'sclang-quit))
 
   ;; 電卓
-  ;; (spacemacs/set-leader-keys "ac" 'calculator)
+  (spacemacs/set-leader-keys "ac" 'calculator)
+  (add-to-list 'evil-insert-state-modes 'calculator-mode)
 
   ;; GLSL
   (defun glsl-mode-hooks ()
