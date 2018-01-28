@@ -43,7 +43,6 @@ values."
      c-c++
      javascript
      shaders
-     ;; javascript
      markdown
      git
      org
@@ -72,7 +71,6 @@ values."
                                     neotree
                                     avy
                                     google-translate
-                                    ;;projectile
                                     ido
                                     ;;undo-tree
                                     ;;winum
@@ -84,10 +82,9 @@ values."
                                     org-projectile
                                     open-junk-file
                                     multi-term
-                                    ;;helm-projectile
                                     golden-ratio
                                     ;;anzu
-                                    ;; magithub
+                                    ;;magithub
                                     tern
                                     git-gutter
                                     smartparens
