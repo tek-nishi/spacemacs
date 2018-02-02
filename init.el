@@ -65,7 +65,8 @@ values."
                                       tidal
                                       )
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   dotspacemacs-frozen-packages '(
+                                  )
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
                                     neotree
@@ -518,17 +519,11 @@ you should place your code here."
     (interactive)
     (insert "NOTICE "))
 
-  (spacemacs/set-leader-keys "iT" 'my-TODO)
-  (spacemacs/set-leader-keys "iF" 'my-FIXME)
-  (spacemacs/set-leader-keys "iP" 'my-TIPS)
-  (spacemacs/set-leader-keys "iS" 'my-SOURCE)
-  (spacemacs/set-leader-keys "iN" 'my-NOTICE)
-
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TODO\\'")   . (nil . "insert TODO")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-FIXME\\'")  . (nil . "insert FIXME")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-TIPS\\'")   . (nil . "insert TIPS")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-SOURCE\\'") . (nil . "insert SOURCE")))
-  (add-to-list 'which-key-replacement-alist '((nil . "\\`my-NOTICE\\'") . (nil . "insert NOTICE")))
+  (spacemacs/set-leader-keys "iT" '("insert TODO" . my-TODO))
+  (spacemacs/set-leader-keys "iF" '("insert FIXME" . my-FIXME))
+  (spacemacs/set-leader-keys "iP" '("insert TIPS" . my-TIPS))
+  (spacemacs/set-leader-keys "iS" '("insert SOURCE" . my-SOURCE))
+  (spacemacs/set-leader-keys "iN" '("insert NOTICE" . my-NOTICE))
   
   (global-hl-todo-mode t)
 

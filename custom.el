@@ -78,7 +78,8 @@
  '(spacemacs-theme-org-height nil)
  '(split-width-threshold nil)
  '(vc-git-annotate-switches "-w")
- '(vc-git-diff-switches "-b"))
+ '(vc-git-diff-switches "-b")
+ '(which-key-enable-extended-define-key t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
