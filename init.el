@@ -51,7 +51,7 @@ values."
      (shell :variables shell-default-shell 'shell
                        shell-default-height 40)
      ;; spell-checking
-     ;; syntax-checking
+     (syntax-checking :variables syntax-checking-enable-by-default nil)
      version-control 
      )
    ;; List of additional packages that will be installed without being
@@ -579,4 +579,9 @@ you should place your code here."
     (add-to-list 'glsl-other-file-alist '("\\.fsh$" (".vsh"))) 
     (add-to-list 'glsl-other-file-alist '("\\.vsh$" (".fsh")))) 
   (add-hook 'glsl-mode-hook 'glsl-mode-hooks)
+
+  ;; JSON mode
+  (defun json-mode-hooks ()
+    (flycheck-mode))
+  (add-hook 'json-mode-hook 'json-mode-hooks)
   )
