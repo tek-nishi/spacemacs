@@ -48,8 +48,9 @@ values."
      org
      html
      haskell
-     (shell :variables shell-default-shell 'shell
-                       shell-default-height 40)
+     (shell :variables
+            shell-default-shell 'shell
+            shell-default-height 40)
      ;; spell-checking
      (syntax-checking :variables syntax-checking-enable-by-default nil)
      version-control 
@@ -584,4 +585,7 @@ you should place your code here."
   (defun json-mode-hooks ()
     (flycheck-mode))
   (add-hook 'json-mode-hook 'json-mode-hooks)
+
+  ;; magit
+  (spacemacs/set-leader-keys "gd" 'magit-diff-buffer-file)
   )
