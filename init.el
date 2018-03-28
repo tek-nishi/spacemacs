@@ -413,6 +413,7 @@ you should place your code here."
     (setq-local show-paren-mode t))
 
   ;; c++modeでの設定
+  ;; C-c C-s でその行の statement を解析する
   (defun my-c-mode-common-hooks ()
     (setq truncate-lines t)
     ;; (setq wrap-prefix t)
@@ -432,14 +433,17 @@ you should place your code here."
     (c-set-offset 'innamespace 0)
     (c-set-offset 'inline-open 0)
     (c-set-offset 'objc-method-call-cont '++)
-    (c-set-offset 'statement-cont 'c-lineup-assignments)
-    
+    (c-set-offset 'statement-cont 'c-lineup-cascaded-calls)
+
     (setq c-electric-pound-behavior '(alignleft))
     ;; (electric-pair-local-mode)
     (my-show-paren-mode-toggle-on)
     (highlight-numbers-mode)
     )
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hooks)
+
+  (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n\\(@interface\\|#import\\)" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 
   (remove-hook 'prog-mode-hook 'hl-todo-mode)
   (add-hook 'prog-mode-hook 'my-show-paren-mode-toggle-on)
@@ -457,7 +461,7 @@ you should place your code here."
 
   (require 'auto-save-buffers-enhanced)
   (setq auto-save-buffers-enhanced-include-regexps '("\\.\\(hpp\\|cpp\\|c\\|h\\|m\\|mm\\|pl\\|cgi\\|json\\|param\\|vsh\\|fsh\\)$"))
-  (setq auto-save-buffers-enhanced-interval 0.5)
+  (setq auto-save-buffers-enhanced-interval 0.6)
   (setq auto-save-buffers-enhanced-quiet-save-p t)
   (auto-save-buffers-enhanced t)
 
@@ -588,4 +592,5 @@ you should place your code here."
 
   ;; magit
   (spacemacs/set-leader-keys "gd" 'magit-diff-buffer-file)
+  (spacemacs/set-leader-keys "ap" nil)
   )
