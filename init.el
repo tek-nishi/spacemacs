@@ -592,5 +592,6 @@ you should place your code here."
 
   ;; magit
   (spacemacs/set-leader-keys "gd" 'magit-diff-buffer-file)
+
   (spacemacs/set-leader-keys "ap" nil)
   )
