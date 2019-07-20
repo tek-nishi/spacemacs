@@ -78,6 +78,7 @@
 | gv              | 選択範囲を復元                                         |
 | M-% C-q [Enter] | 改行文字を置換                                         |
 | SPC s e         | iedit mode                                             |
+| H, M, L         | TOP, MIDDLE, LOW位置へ                                 |
  
 * org-mode
 | TAB            | table操作                      |

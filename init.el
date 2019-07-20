@@ -45,12 +45,13 @@ values."
      shaders
      markdown
      git
-     org
+     (org :variables org-enable-github-support t
+                     org-enable-reveal-js-support t)
      html
      haskell
-     (shell :variables
-            shell-default-shell 'shell
-            shell-default-height 40)
+     csharp
+     (shell :variables shell-default-shell 'shell
+                       shell-default-height 40)
      ;; spell-checking
      (syntax-checking :variables syntax-checking-enable-by-default nil)
      version-control 
@@ -359,10 +360,13 @@ you should place your code here."
   ;; diredの挙動をWindowsと揃える
   (load-library "ls-lisp")
 
+  ;; (setq-default line-spacing 0.25)
   (setq frame-title-format " %b %f")
 
   ;; TIPS: 対応する括弧のハイライトを有効にしつつ OFF
   (show-paren-mode -1)
+
+  (global-auto-revert-mode 1)
 
   (require 'ucs-normalize)
   (set-file-name-coding-system 'utf-8-hfs)
@@ -387,7 +391,8 @@ you should place your code here."
   
   ;; スクラッチバッファを永続化  
   (persistent-scratch-setup-default)
-  
+  ;; 折り返しモード設定
+  (add-hook 'text-mode-hook #'visual-line-mode)
   ;; agenga viewからRETを押してorgを表示した時に、sub-treeを展開する
   (defun my-org-agenda-after-show-hooks ()
     (org-cycle))
@@ -442,7 +447,9 @@ you should place your code here."
     )
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hooks)
 
-  (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n\\(@interface\\|#import\\)" . objc-mode))
+  (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n\\(class\\|namespace\\|template\\)" . c++-mode))
+
+  (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n\\(@interface\\|#import\\|@protocol\\)" . objc-mode))
   (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 
   (remove-hook 'prog-mode-hook 'hl-todo-mode)
@@ -499,7 +506,10 @@ you should place your code here."
                     )))
     :separator " ")
 
+  ;; 簡単雛形挿入 
+  (require 'org-tempo)
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-md-export-to-markdown)
 
   (spacemacs/set-leader-keys "jo" 'ff-find-other-file)
 
@@ -591,6 +601,7 @@ you should place your code here."
   (add-hook 'json-mode-hook 'json-mode-hooks)
 
   ;; magit
+  (setq magit-auto-revert-mode t)
   (spacemacs/set-leader-keys "gd" 'magit-diff-buffer-file)
 
   (spacemacs/set-leader-keys "ap" nil)
