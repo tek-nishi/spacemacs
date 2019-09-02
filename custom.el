@@ -56,6 +56,7 @@
  '(helm-buffer-max-length 30)
  '(helm-ff-skip-boring-files t)
  '(hl-todo-activate-in-modes (quote (prog-mode c++-mode objc-mode)))
+ '(hl-todo-include-modes (quote (prog-mode c++-mode objc-mode)))
  '(hl-todo-keyword-faces
    (quote
     (("TODO" . "#D00000")
@@ -111,6 +112,8 @@
  '(spacemacs-theme-org-agenda-height nil)
  '(spacemacs-theme-org-height nil)
  '(split-width-threshold nil)
+ '(transient-history-file
+   "(expand-file-name (convert-standard-filename \"transient/history.el\") spacemacs-cache-directory)")
  '(vc-git-annotate-switches "-w")
  '(vc-git-diff-switches "-b")
  '(which-key-enable-extended-define-key t))
