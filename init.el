@@ -43,10 +43,9 @@ values."
      c-c++
      javascript
      shaders
+     (org :variables org-enable-github-support t)
      markdown
      git
-     (org :variables org-enable-github-support t
-                     org-enable-reveal-js-support t)
      html
      haskell
      csharp
@@ -509,7 +508,7 @@ you should place your code here."
   ;; 簡単雛形挿入 
   (require 'org-tempo)
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-md-export-to-markdown)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-gfm-export-to-markdown)
 
   (spacemacs/set-leader-keys "jo" 'ff-find-other-file)
 
