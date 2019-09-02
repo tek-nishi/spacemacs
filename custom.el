@@ -113,7 +113,7 @@
  '(spacemacs-theme-org-height nil)
  '(split-width-threshold nil)
  '(transient-history-file
-   "(expand-file-name (convert-standard-filename \"transient/history.el\") spacemacs-cache-directory)")
+   (expand-file-name (convert-standard-filename "transient/history.el") spacemacs-cache-directory))
  '(vc-git-annotate-switches "-w")
  '(vc-git-diff-switches "-b")
  '(which-key-enable-extended-define-key t))
