@@ -61,9 +61,10 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       persistent-scratch
-                                      auto-save-buffers-enhanced
+                                      ;; auto-save-buffers-enhanced
                                       disable-mouse
                                       tidal
+                                      super-save
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '(
@@ -387,6 +388,7 @@ you should place your code here."
   ;; マイナーモードの表示 
   (spacemacs|diminish view-mode " Ⓥ" " V")
   (spacemacs|diminish centered-cursor-mode " ㊀" " -")
+  (spacemacs|diminish super-save-mode " Ⓢ" " super-save")
   
   ;; スクラッチバッファを永続化  
   (persistent-scratch-setup-default)
@@ -465,11 +467,14 @@ you should place your code here."
   (add-hook 'evil-normal-state-entry-hook 'my-evil-normal-state-entry-hook)
   (add-hook 'focus-in-hook 'my-evil-normal-state-entry-hook)
 
-  (require 'auto-save-buffers-enhanced)
-  (setq auto-save-buffers-enhanced-include-regexps '("\\.\\(hpp\\|cpp\\|c\\|h\\|m\\|mm\\|pl\\|cgi\\|json\\|param\\|vsh\\|fsh\\)$"))
-  (setq auto-save-buffers-enhanced-interval 0.6)
-  (setq auto-save-buffers-enhanced-quiet-save-p t)
-  (auto-save-buffers-enhanced t)
+  ;; auto save
+  ;; (require 'auto-save-buffers-enhanced)
+  ;; (setq auto-save-buffers-enhanced-include-regexps '("\\.\\(hpp\\|cpp\\|c\\|h\\|m\\|mm\\|pl\\|cgi\\|json\\|param\\|vsh\\|fsh\\)$"))
+  ;; (setq auto-save-buffers-enhanced-interval 0.6)
+  ;; (setq auto-save-buffers-enhanced-quiet-save-p t)
+  ;; (auto-save-buffers-enhanced t)
+
+  (super-save-mode +1)
 
   ;; 左右マージン
   (require 'wm)
