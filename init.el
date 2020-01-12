@@ -510,11 +510,6 @@ you should place your code here."
                     )))
     :separator " ")
 
-  ;; 簡単雛形挿入 
-  (require 'org-tempo)
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-gfm-export-to-markdown)
-
   (spacemacs/set-leader-keys "jo" 'ff-find-other-file)
 
   ;; キーワード挿入
@@ -552,6 +547,15 @@ you should place your code here."
   ;; (spacemacs/set-leader-keys "jq" nil)
 
   (spacemacs/set-leader-keys "bC" 'set-buffer-file-coding-system)
+
+  ;; tagの整列は SPC u C-c C-c
+  (with-eval-after-load 'org
+    ;; Replace org-set-tags with org-set-tags-command in keybinding
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode ":" 'org-set-tags-command)
+    ;; 簡単雛形挿入
+    (require 'org-tempo)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-gfm-export-to-markdown))
 
   ;; org-agenda
   (eval-after-load "org-agenda"
