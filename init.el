@@ -555,11 +555,21 @@ you should place your code here."
     ;; 簡単雛形挿入
     (require 'org-tempo)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode "eh" 'org-html-export-to-html)
-    (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-gfm-export-to-markdown))
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'org-gfm-export-to-markdown)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "v" 'org-todo-list-current-file)
+    )
 
   ;; org-agenda
-  (eval-after-load "org-agenda"
-    '(define-key org-agenda-mode-map "u" 'org-agenda-undo))
+  (with-eval-after-load "org-agenda"
+    (define-key org-agenda-mode-map "u" 'org-agenda-undo))
+
+  (defun org-todo-list-current-file (&optional arg)
+    "Like `org-todo-list', but using only the current buffer's file."
+    (interactive "P")
+    (let ((org-agenda-files (list (buffer-file-name (current-buffer)))))
+      (if (null (car org-agenda-files))
+          (error "%s is not visiting a file" (buffer-name (current-buffer)))
+        (org-todo-list arg))))
 
   (fset 'evil-visual-update-x-selection 'ignore)
 
