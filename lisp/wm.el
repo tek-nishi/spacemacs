@@ -6,7 +6,7 @@
 
 (defvar wm:active nil)
 
-(defvar wm:exclue-regexps '("\*spacemacs\*\\|helm\\|\*Minibuf\\|\*which-key\\|\*Echo\\|\*magit\\|COMMIT"))
+(defvar wm:exclue-regexps '("\*spacemacs\*\\|helm\\|\*Minibuf\\|\*which-key\\|\*Echo"))
 
 ;; 正規表現と文字列の一致を調べる
 (defun wm:regexps-match-p (regexps string)
