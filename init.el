@@ -162,7 +162,7 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          ;;dichromacy
-                         ;;spacemacs-dark
+                         ;; spacemacs-dark
                          spacemacs-light
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -173,7 +173,7 @@ values."
                                :size   18
                                :weight normal
                                :width  normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -384,12 +384,23 @@ you should place your code here."
   (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
   ;; Rictyだとpowerlineのシンボルに想定外のフォントが使われてしまうためのworkaround
-  (set-fontset-font t 'symbol (font-spec :name "Hiragino Sans-16"))
+  (set-fontset-font t 'symbol (font-spec :name "Hiragino Sans"))
   ;; マイナーモードの表示 
-  (spacemacs|diminish view-mode " Ⓥ" " V")
-  (spacemacs|diminish centered-cursor-mode " ㊀" " -")
-  (spacemacs|diminish super-save-mode " Ⓢ" " super-save")
-  
+  (spacemacs|diminish view-mode " " " V")
+  (spacemacs|diminish centered-cursor-mode " " " -")
+  (spacemacs|diminish super-save-mode " " " super-save")
+  (spacemacs|diminish helm-ff-cache-mode " " " ff-cache")
+  (spacemacs|diminish which-key-mode " " " Key")
+  (spacemacs|diminish flycheck-mode " " " !Flyc")
+
+  ;; いくつかのアイコンはHookで書き換える
+  (defun evil-org-mode-hooks ()
+    (spacemacs|diminish evil-org-mode " " " evil-org"))
+  (add-hook 'evil-org-mode-hook 'evil-org-mode-hooks)
+  (defun magit-gitflow-mode-hooks()
+    (spacemacs|diminish magit-gitflow-mode " " " Flow"))
+  (add-hook 'magit-gitflow-mode-hook 'magit-gitflow-mode-hooks)
+
   ;; スクラッチバッファを永続化  
   (persistent-scratch-setup-default)
   ;; 折り返しモード設定

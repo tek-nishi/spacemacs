@@ -43,7 +43,7 @@
       (".h")))))
  '(cc-search-directories (quote ("." "include" "../include")))
  '(dired-listing-switches "-lahX")
- '(disable-mouse-mode-global-lighter " ☒")
+ '(disable-mouse-mode-global-lighter " ")
  '(dumb-jump-default-project ".")
  '(dumb-jump-git-grep-cmd "git -c core.precomposeUnicode=false grep")
  '(evil-want-Y-yank-to-eol nil)
