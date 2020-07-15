@@ -386,19 +386,20 @@ you should place your code here."
   ;; Rictyだとpowerlineのシンボルに想定外のフォントが使われてしまうためのworkaround
   (set-fontset-font t 'symbol (font-spec :name "Hiragino Sans"))
   ;; マイナーモードの表示 
-  (spacemacs|diminish view-mode " " " V")
-  (spacemacs|diminish centered-cursor-mode " " " -")
-  (spacemacs|diminish super-save-mode " " " super-save")
-  (spacemacs|diminish helm-ff-cache-mode " " " ff-cache")
-  (spacemacs|diminish which-key-mode " " " Key")
-  (spacemacs|diminish flycheck-mode " " " !Flyc")
+  (spacemacs|diminish view-mode "" "V")
+  (spacemacs|diminish centered-cursor-mode "" "-")
+  (spacemacs|diminish super-save-mode "" "sSave")
+  (spacemacs|diminish helm-ff-cache-mode "" "ffCache")
+  (spacemacs|diminish which-key-mode "" "wKey")
+  (spacemacs|diminish flycheck-mode "" "!Flyc")
+  (spacemacs|diminish magit-blame-mode "" "Blame")
 
   ;; いくつかのアイコンはHookで書き換える
   (defun evil-org-mode-hooks ()
-    (spacemacs|diminish evil-org-mode " " " evil-org"))
+    (spacemacs|diminish evil-org-mode " " "evil-org"))
   (add-hook 'evil-org-mode-hook 'evil-org-mode-hooks)
   (defun magit-gitflow-mode-hooks()
-    (spacemacs|diminish magit-gitflow-mode " " " Flow"))
+    (spacemacs|diminish magit-gitflow-mode "" "Flow"))
   (add-hook 'magit-gitflow-mode-hook 'magit-gitflow-mode-hooks)
 
   ;; スクラッチバッファを永続化  
@@ -485,7 +486,6 @@ you should place your code here."
   ;; (setq auto-save-buffers-enhanced-quiet-save-p t)
   ;; (auto-save-buffers-enhanced t)
 
-  (super-save-mode +1)
 
   ;; 左右マージン
   (require 'wm)
@@ -514,10 +514,10 @@ you should place your code here."
     "The line ending convention used in the buffer."
     (let ((buf-coding (format "%s" buffer-file-coding-system)))
       (list (replace-regexp-in-string "-with-signature\\|-unix\\|-dos\\|-mac" "" buf-coding)
-            (concat (and (string-match "with-signature" buf-coding) "ⓑ")
-                    (and (string-match "unix"           buf-coding) "ⓤ")
-                    (and (string-match "dos"            buf-coding) "ⓓ")
-                    (and (string-match "mac"            buf-coding) "ⓜ")
+            (concat (and (string-match "with-signature" buf-coding) "")
+                    (and (string-match "unix"           buf-coding) "")
+                    (and (string-match "dos"            buf-coding) "")
+                    (and (string-match "mac"            buf-coding) "")
                     )))
     :separator " ")
 
