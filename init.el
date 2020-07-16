@@ -485,7 +485,8 @@ you should place your code here."
   ;; (setq auto-save-buffers-enhanced-interval 0.6)
   ;; (setq auto-save-buffers-enhanced-quiet-save-p t)
   ;; (auto-save-buffers-enhanced t)
-
+  ;; フォーカスアウトで自動保存
+  (super-save-mode +1)
 
   ;; 左右マージン
   (require 'wm)
