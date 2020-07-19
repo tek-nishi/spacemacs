@@ -479,12 +479,6 @@ you should place your code here."
   (add-hook 'evil-normal-state-entry-hook 'my-evil-normal-state-entry-hook)
   (add-hook 'focus-in-hook 'my-evil-normal-state-entry-hook)
 
-  ;; auto save
-  ;; (require 'auto-save-buffers-enhanced)
-  ;; (setq auto-save-buffers-enhanced-include-regexps '("\\.\\(hpp\\|cpp\\|c\\|h\\|m\\|mm\\|pl\\|cgi\\|json\\|param\\|vsh\\|fsh\\)$"))
-  ;; (setq auto-save-buffers-enhanced-interval 0.6)
-  ;; (setq auto-save-buffers-enhanced-quiet-save-p t)
-  ;; (auto-save-buffers-enhanced t)
   ;; フォーカスアウトで自動保存
   (super-save-mode +1)
 
