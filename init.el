@@ -40,15 +40,15 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     c-c++
      javascript
+     c-c++
      shaders
      (org :variables org-enable-github-support t)
      markdown
      git
      html
-     haskell
-     csharp
+     ;; haskell
+     ;; csharp
      (shell :variables shell-default-shell 'shell
                        shell-default-height 40)
      ;; spell-checking
@@ -63,8 +63,9 @@ values."
                                       persistent-scratch
                                       ;; auto-save-buffers-enhanced
                                       disable-mouse
-                                      tidal
+                                      ;; tidal
                                       super-save
+                                      helm-flycheck
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '(
@@ -278,7 +279,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -386,21 +387,21 @@ you should place your code here."
   ;; Rictyだとpowerlineのシンボルに想定外のフォントが使われてしまうためのworkaround
   (set-fontset-font t 'symbol (font-spec :name "Hiragino Sans"))
   ;; マイナーモードの表示 
-  (spacemacs|diminish view-mode "" "V")
-  (spacemacs|diminish centered-cursor-mode "" "-")
-  (spacemacs|diminish super-save-mode "" "sSave")
-  (spacemacs|diminish helm-ff-cache-mode "" "ffCache")
-  (spacemacs|diminish which-key-mode "" "wKey")
-  (spacemacs|diminish flycheck-mode "" "!Flyc")
-  (spacemacs|diminish magit-blame-mode "" "Blame")
+  ;; (spacemacs|diminish view-mode "" "V")
+  ;; (spacemacs|diminish centered-cursor-mode "" "-")
+  ;; (spacemacs|diminish super-save-mode "" "sSave")
+  ;; (spacemacs|diminish helm-ff-cache-mode "" "ffCache")
+  ;; (spacemacs|diminish which-key-mode "" "wKey")
+  ;; (spacemacs|diminish flycheck-mode "" "!Flyc")
+  ;; (spacemacs|diminish magit-blame-mode "" "Blame")
 
   ;; いくつかのアイコンはHookで書き換える
-  (defun evil-org-mode-hooks ()
-    (spacemacs|diminish evil-org-mode " " "evil-org"))
-  (add-hook 'evil-org-mode-hook 'evil-org-mode-hooks)
-  (defun magit-gitflow-mode-hooks()
-    (spacemacs|diminish magit-gitflow-mode "" "Flow"))
-  (add-hook 'magit-gitflow-mode-hook 'magit-gitflow-mode-hooks)
+  ;; (defun evil-org-mode-hooks ()
+  ;;   (spacemacs|diminish evil-org-mode " " "evil-org"))
+  ;; (add-hook 'evil-org-mode-hook 'evil-org-mode-hooks)
+  ;; (defun magit-gitflow-mode-hooks()
+  ;;   (spacemacs|diminish magit-gitflow-mode "" "Flow"))
+  ;; (add-hook 'magit-gitflow-mode-hook 'magit-gitflow-mode-hooks)
 
   ;; スクラッチバッファを永続化  
   (persistent-scratch-setup-default)
@@ -449,6 +450,7 @@ you should place your code here."
     (c-set-offset 'arglist-close '-)
     (c-set-offset 'substatement 0)
     (c-set-offset 'innamespace 0)
+    ;; (c-set-offset 'inlambda 0)
     (c-set-offset 'inline-open 0)
     (c-set-offset 'objc-method-call-cont '++)
     (c-set-offset 'statement-cont 'c-lineup-cascaded-calls)
@@ -475,7 +477,7 @@ you should place your code here."
 
   ;; normal-modeになったら強制的に英語入力へ
   (defun my-evil-normal-state-entry-hook ()
-    (mac-select-input-source "com.apple.inputmethod.Kotoeri.Roman"))
+    (mac-select-input-source "com.apple.keylayout.ABC"))
   (add-hook 'evil-normal-state-entry-hook 'my-evil-normal-state-entry-hook)
   (add-hook 'focus-in-hook 'my-evil-normal-state-entry-hook)
 
@@ -501,18 +503,19 @@ you should place your code here."
   (setq gc-cons-threshold (* 8 1024 1024))
 
   ;; 曖昧な文字幅を全て二文字扱いにする
-  (require 'eaw)
-  (eaw-fullwidth)
+  ;; (require 'eaw)
+  ;; (eaw-fullwidth)
   
   ;; バッファの文字コード表示に改行とBOM付きを加える
   (spaceline-define-segment buffer-encoding-abbrev
     "The line ending convention used in the buffer."
     (let ((buf-coding (format "%s" buffer-file-coding-system)))
       (list (replace-regexp-in-string "-with-signature\\|-unix\\|-dos\\|-mac" "" buf-coding)
-            (concat (and (string-match "with-signature" buf-coding) "")
-                    (and (string-match "unix"           buf-coding) "")
-                    (and (string-match "dos"            buf-coding) "")
-                    (and (string-match "mac"            buf-coding) "")
+            (concat (and (string-match "with-signature" buf-coding) "BOM")
+            ;; (concat (and (string-match "with-signature" buf-coding) "")
+            ;;         (and (string-match "unix"           buf-coding) "")
+            ;;         (and (string-match "dos"            buf-coding) "")
+            ;;         (and (string-match "mac"            buf-coding) "")
                     )))
     :separator " ")
 
@@ -595,17 +598,17 @@ you should place your code here."
   (fset 'iedit-toggle-unmatched-lines-visible 'iedit-show/hide-unmatched-lines)
 
   ;; Tidal
-  (setq tidal-interpreter "/usr/local/bin/stack")
-  (setq tidal-interpreter-arguments
-        (list "repl"
-              "--ghci-options=-XOverloadedStrings"
-              ))
+  ;; (setq tidal-interpreter "/usr/local/bin/stack")
+  ;; (setq tidal-interpreter-arguments
+  ;;       (list "repl"
+  ;;             "--ghci-options=-XOverloadedStrings"
+  ;;             ))
   
   ;; SuperCollider
-  (with-eval-after-load "tidal"
-    (require 'sclang)
-    (define-key tidal-mode-map (kbd "C-c s s") 'sclang-start)
-    (define-key tidal-mode-map (kbd "C-c s q") 'sclang-quit))
+  ;; (with-eval-after-load "tidal"
+  ;;   (require 'sclang)
+  ;;   (define-key tidal-mode-map (kbd "C-c s s") 'sclang-start)
+  ;;   (define-key tidal-mode-map (kbd "C-c s q") 'sclang-quit))
 
   ;; 電卓
   (spacemacs/set-leader-keys "ac" 'calculator)
