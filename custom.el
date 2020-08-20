@@ -8,36 +8,22 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(cc-other-file-alist
-   '(("\\.cc\\'"
-      (".hh" ".h"))
-     ("\\.hh\\'"
-      (".cc" ".C" ".CC" ".cxx" ".cpp" ".c++"))
-     ("\\.c\\'"
+   '(("\\.c\\'"
       (".h"))
      ("\\.m\\'"
       (".h"))
      ("\\.h\\'"
-      (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".c++" ".m" ".mm"))
-     ("\\.C\\'"
-      (".H" ".hh" ".h"))
-     ("\\.H\\'"
-      (".C" ".CC"))
-     ("\\.CC\\'"
-      (".HH" ".H" ".hh" ".h"))
-     ("\\.HH\\'"
-      (".CC"))
+      (".cpp" ".c" ".mm" ".m"))
      ("\\.c\\+\\+\\'"
-      (".h++" ".hh" ".h"))
+      (".h++" ".h"))
      ("\\.h\\+\\+\\'"
       (".c++"))
      ("\\.cpp\\'"
-      (".hpp" ".hh" ".h"))
+      (".hpp" ".h"))
      ("\\.hpp\\'"
       (".cpp"))
      ("\\.cxx\\'"
-      (".hxx" ".hh" ".h"))
-     ("\\.hxx\\'"
-      (".cxx"))
+      (".hxx" ".h"))
      ("\\.mm\\'"
       (".h"))))
  '(cc-search-directories '("." "include" "../include"))
